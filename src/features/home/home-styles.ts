@@ -6,8 +6,9 @@ Container: styled('div')(()=>({
     width:'100%',
     display:'flex',
     justifyContent:'center',
-    alignItems:'center'
-    , height:'90vh'
+    alignItems:'center',
+    height:'90vh',
+    backgroundImage:'./system-architecture.png'
 })),
 SubContainer: styled('div')(()=>({
     width:'80%',
@@ -18,8 +19,9 @@ SubContainer: styled('div')(()=>({
 })),
 
 HeroText: styled('p')(()=>({
-    fontSize:'1.6em',
-    color:'#fff'
+    fontSize:'3em',
+    color:'#111',
+    fontWeight:700
 }))
 }
 

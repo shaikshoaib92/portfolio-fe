@@ -18,10 +18,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}
         style={{
-          backgroundColor: '#0a1a2a',
+          backgroundColor: '#fff',
+          // backgroundColor: '#0a1a2a',
           display:'flex',
           flexDirection:'column',
-          overflowY:'hidden'
+          overflowY:'auto',
         }}
       >
         <Navbar />
