@@ -2,49 +2,46 @@
 import { styled } from "@mui/material"
 
 const ProjectStyles = {
-Container: styled('div')(()=>({
-    width:'100%',
-    height:'90vh',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    marginTop:'30px'
-})),
+    Container: styled('div')(() => ({
+        width: '100%',
+        height: '90vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    })),
 
-SubContainer: styled('div')(()=>({
-    width:'100%',
-    height:'100%',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    flexWrap:'wrap',
-    gap:20,
-    overflowY:'scroll'
-})),
+    SubContainer: styled('div')(() => ({
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap:10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    })),
 
-HorizontalBox: styled('div')(()=>({
-    width:'20%',
-    height:'30%',
-    border:'1px solid #fff',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    textAlign:'center',
-    borderRadius:'5px'
-})),
+    HorizontalBox: styled('div')(() => ({
+        width: '30%',
+        height: '15em',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        textAlign: 'center',
+        boxShadow: "2px 3px 7px 0px rgba(0,0,0,0.54)"
 
-VerticalBox: styled('div')(()=>({
-    width:'15%',
-    height:'50%',
-    border:'1px solid #fff',
-    display:'flex',
-    justifyContent:'center',
-    alignItems:'center',
-    textAlign:'center',
-    borderRadius:'5px'
+    })),
+
+    VerticalBox: styled('div')(() => ({
+        width: '15%',
+        height: '50%',
+        border: '1px solid #fff',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        textAlign: 'center',
+        borderRadius: '5px'
 
 
-}))
+    }))
 }
 
 export default ProjectStyles

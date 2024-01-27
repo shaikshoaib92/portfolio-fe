@@ -46,13 +46,14 @@ const Home = () => {
               margin: 0,
             }}
           >
-            
-            {"while( company.employees[0].name === shoaib )"}<br/>
-            {"{"}<br/>
-            {"console.log(Delivering Great Products)"}<br/>
+            {"while( company.employees[0].name === shoaib )"}
+            <br />
+            {"{"}
+            <br />
+            {"  "}{"console.log(Delivering Great Products)"}
+            <br />
             {"}"}
           </p>
-
         </div>
       </SubContainer>
       <img />
