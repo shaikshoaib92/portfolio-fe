@@ -24,7 +24,8 @@ const ProjectStyles = {
         width: '30%',
         height: '15em',
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
+        alignItems:"center",
         textAlign: 'center',
         boxShadow: "2px 3px 7px 0px rgba(0,0,0,0.54)"
 

@@ -1,4 +1,5 @@
 "use client";
+import { useState } from "react";
 import HorizontalBoxComponent from "./components/HorizontalBoxComponent";
 import VerticalBoxComponent from "./components/VerticalBoxComponent";
 import ProjectStyles from "./projects-styles";
@@ -63,6 +64,7 @@ let projectData = [
 ];
 
 const Projects = () => {
+  const [hoveredItemId, setHoveredItemId] = useState<string | null>(null);
   const { Container, SubContainer, HorizontalBox } = ProjectStyles;
 
   return (
@@ -73,21 +75,26 @@ const Projects = () => {
             <HorizontalBox
               key={item.id}
               sx={{
-                backgroundImage: `url(${item.img})`,
+                backgroundImage:
+                  hoveredItemId === item.id ? "none" : `url(${item.img})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
+              onMouseEnter={() => setHoveredItemId(item.id)}
+              onMouseLeave={() => setHoveredItemId(null)}
             >
-              <p
-                style={{
-                  color: "#11111",
-                  fontSize: "1em",
-                  fontWeight: 700,
-                  paddingLeft: 15,
-                }}
-              >
-                {item.title}
-              </p>
+              {hoveredItemId === item.id && (
+                <p
+                  style={{
+                    color: "#11111",
+                    fontSize: "1.5em",
+                    fontWeight: 700,
+                    paddingLeft: 15,
+                  }}
+                >
+                  {item.title}
+                </p>
+              )}
             </HorizontalBox>
           );
         })}
