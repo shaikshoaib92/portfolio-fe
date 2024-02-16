@@ -44,14 +44,14 @@ const Navbar = () => {
         >
           Home
         </MenuItem>
-        <MenuItem
+        {/* <MenuItem
           style={{
             color: pahtname === "/projects" ? "#111" : "",
           }}
           onClick={() => router.push("/projects")}
         >
           Project
-        </MenuItem>
+        </MenuItem> */}
         <MenuItem
           style={{
             color: pahtname === "/experience" ? "#111" : "",
@@ -68,7 +68,14 @@ const Navbar = () => {
         >
           About Me
         </MenuItem>
-        <MenuItem>Contact</MenuItem>
+        <MenuItem
+          style={{
+            color: pahtname === "/contact" ? "#111" : "",
+          }}
+          onClick={() => router.push("/contact")}
+        >
+          Contact
+        </MenuItem>
       </MenuContainer>
     </Container>
   );

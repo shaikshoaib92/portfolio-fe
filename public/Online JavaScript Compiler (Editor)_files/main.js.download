@@ -1,0 +1,154 @@
+/*
+This file was modified by the Flashtalking Service Suite
+Version: 2.4.15
+Tool: adrepair
+Date: September 29, 2023 at 15:40:02
+Options Selected: {"alwaysClickTag":false,"multipleClickTag":false,"standardAd":false}
+Logged Changes: f_rec
+*/
+/******/ "use strict";
+var __webpack_exports__ = {};
+
+;// CONCATENATED MODULE: ./node_modules/@mediamonks/display-temple/util/enableRecorder.js
+/**
+ * Enable the ad to communicate with the display-ads-recorder, allowing the ad to be converted to other formats like mp4 and animated gif.
+ *
+ * @param {String} animation GSAP Timeline.
+ * @param {String} config richmedia config.
+ */
+
+function enableAdsRecorder(animation, config) {
+  const animationConfig = {
+    duration: animation.duration(),
+    width: config.settings.size.width,
+    height: config.settings.size.height,
+  };
+
+  window.postMessage({
+    name: 'animation-ready',
+    ...animationConfig,
+  });
+
+  window.addEventListener('message', event => {
+    const { data } = event;
+
+    if (data.name === 'request-goto-frame') {
+      animation.pause(data.frame / 1000, false);
+      window.postMessage({
+        name: 'current-frame',
+        frame: data.frame,
+      });
+    }
+  });
+}
+
+;// CONCATENATED MODULE: ./src/display_static/shared/script/main.js
+
+
+
+async function politeLoadImages(element) {
+  const imageList = Array.from(element.querySelectorAll('img[data-src]'));
+  const imageUrlList = imageList.map((img) => img.getAttribute('data-src'));
+
+  const result = await Promise.all(
+    imageUrlList.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = document.createElement('img');
+        img.onload = function () {
+          resolve(this);
+        };
+        img.onerror = reject;
+        img.dataset.src = src;
+        img.src = src;
+      });
+    }),
+  );
+
+  result.forEach((img, index) => {
+    imageList[index].src = img.src;
+  });
+}
+
+function createAnimation(obj, config) {
+  const tl = gsap.timeline(obj);
+
+  const dimensions = `${config.settings.size.width}x${config.settings.size.height}`;
+  const textIntro = dimensions === '728x90' ? {y: '150%'} : {x: '-150%'};
+
+  tl.to('.content', {duration: 1, opacity: 1})
+  tl.addLabel('frame1')
+  
+  // if(config.content.adType == "STE_Student_Campaign"){
+   // console.log(config.content.adType);
+   if(config.settings.size.width == "728"){
+    tl.from('.adobeCloudLogo', {duration: .4, opacity:0, scale: .9, transformOrigin: 'right right', ease: "back.out(5)"}, 'frame1')
+   } else {
+    tl.from('.adobeCloudLogo', {duration: .4, opacity:0, scale: .5, transformOrigin: 'center center', ease: "back.out(3)"}, 'frame1')
+   }
+  tl.from('.flowersMask', {duration: 0.5, height: 0,  ease: 'cubic.out', opacity: 0}, '>');
+  tl.from('.flowersAndBugs', {duration: 0.8, ease: 'cubic.out', opacity: 0}, '>');
+  tl.from('.selection', {duration: 0.8, width: 0, height:0, ease: 'cubic.out'}, '>');
+  tl.from('.heart', {duration: 0.4, width: 0, ease: 'cubic.out'}, '>');
+  tl.from(['.mainCopy', '.subCopy'], {duration: 0.8, ...textIntro, ease: 'cubic.out', opacity: 0, stagger: 0.3}, 'frame1');
+
+  tl.from('.cta', {duration: 1, opacity: 0, ease: 'cubic.out'}, '>')
+
+  return tl;
+
+
+}
+
+function createCtaAnimation(obj, config) {
+  const tl = gsap.timeline(obj);
+  tl.to('.cta', {duration: 0.1,  backgroundColor: '#ffffff'});
+  tl.to('.cta_copy', {duration: 0.1, color: '#0075eb'}, '<');
+  return tl;
+}
+
+async function flashtalkingApi() {
+  console.log('checking')
+  if (!myFT.hasLoaded) {
+    console.log('not loaded')
+    await new Promise((resolve) => {
+      myFT.on('ready', resolve);
+    });
+  }
+  console.log('done')
+  return;
+}
+
+(async () => {
+  const config = {"settings":{"size":{"width":728,"height":90}},"content":{"css":"style.css","bgcolor":"#000000","customCss":"custom.css","logo":"logo.png","backgroundImage":"img0.png","cta":"Buy now","language":"en","adType":"display_static_Campaign","mainCopy":"Save 40% on Creative<br> Cloud for the first year.","subCopy":"","adobeCloudLogo":"adobeCloudLogo.png","flowersAndBugs":"flowersAndBugs.png","flowers":"flowers.png","selection":"selection.png","heart":"heart.png"}};
+
+  // create timelines
+  const timeline = createAnimation({paused: true}, config);
+  const ctaTimeline = createCtaAnimation({paused: true}, config);
+
+  // create exit / rollover events
+  const mainExit = document.querySelector('.mainExit');
+  myFT.applyClickTag(mainExit, 1);
+  mainExit.addEventListener('click', () => {
+    // myFT.clickTag(1);
+   // myFT.clickTag(1);
+    timeline.progress(1);
+  });
+
+  mainExit.addEventListener('mouseover', () => {
+    ctaTimeline.play();
+  });
+
+  mainExit.addEventListener('mouseout', () => {
+    ctaTimeline.reverse();
+  });
+
+  // await loading images and others
+  await politeLoadImages(document.querySelector('.banner'));
+  await document.fonts.ready;
+  // await flashtalkingApi();
+
+  enableAdsRecorder(timeline, config);
+
+  //play banner ad animation
+  timeline.play();
+})();
+

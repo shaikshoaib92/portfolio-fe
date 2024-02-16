@@ -6,7 +6,6 @@ const NavStyles = {
         display: 'flex',
         justifyContent: "space-between",
         padding: "1.5em",
-
     })),
 
     MenuContainer: styled("div")(() => ({

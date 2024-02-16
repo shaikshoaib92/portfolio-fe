@@ -1,0 +1,140 @@
+/*
+This file was modified by the Flashtalking Service Suite
+Version: 2.4.15
+Tool: adrepair
+Date: September 29, 2023 at 15:40:02
+Options Selected: {"alwaysClickTag":false,"multipleClickTag":false,"standardAd":false}
+Logged Changes: f_rec
+*/
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0x;
+  width: 100%;
+  height: 100%;
+}
+
+.title_container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+}
+
+.mainCopy {
+  position: absolute;
+  top: 15px;
+  left: 195px;
+  font-size: 26px;
+  line-height: .99;
+}
+
+.mainCopy.my, .mainCopy.id {
+    font-size: 26px;
+  }
+
+.subCopy {
+  position: absolute;
+  top: 94px;
+  left: 19px;
+  font-size: 13px;
+  line-height: 1.1;
+}
+
+.productCopy {
+  position: absolute;
+  top: 19px;
+  left: 20px;
+  font-size: 11px;
+  font-family: AdobeClean, sans-serif;
+  letter-spacing: 0.3px;
+
+  display: none;
+}
+
+.cta {
+  position: absolute;
+  border: 2px solid #ffffff;
+  border-radius: 20px;
+  height: 29px;
+  left: 488px;
+  overflow: hidden;
+  top: 30px;
+  width: 70px;
+  will-change: transform;
+}
+
+.cta.my {
+  top: 30px;
+  }
+
+.cta_copy {
+  position: absolute;
+  top: 46%;
+  left: 50%;
+  width: 90%;
+  padding: 5px 5px;
+  text-align: center;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  height: 53px;
+}
+
+.adobeCloudLogo {
+  position: absolute;
+  top: 8px;
+  left: 53px;
+  width: 96px;
+  height: 73px;
+}
+
+.flowersMask {
+  position: absolute;
+  bottom: 14px;
+  left: 59px;
+  width: 83px;
+  height: 89px;
+  overflow: hidden;
+}
+
+.flowers {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 90px;
+  height: 77px;
+}
+
+.flowersAndBugs {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* width: 320px;
+  height: 276px; */
+}
+
+.selection {
+  position: absolute;
+  top: 13px;
+  left: 50px;
+  height: 17px;
+  width: 13px;
+}
+
+.heart {
+  position: absolute;
+  top: 14px;
+  left: 51px;
+  height: 15px;
+  width: 15px;
+}

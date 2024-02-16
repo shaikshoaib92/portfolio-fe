@@ -1,0 +1,103 @@
+/*
+This file was modified by the Flashtalking Service Suite
+Version: 2.4.15
+Tool: adrepair
+Date: September 29, 2023 at 15:40:02
+Options Selected: {"alwaysClickTag":false,"multipleClickTag":false,"standardAd":false}
+Logged Changes: f_rec
+*/
+@font-face {
+  font-family: AdobeClean;
+  src: url(AdobeClean-Bold.woff) format('woff'), url(AdobeClean-Bold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: AdobeClean-ExtraBold;
+  src: url(AdobeClean-ExtraBold.woff) format('woff'), url(AdobeClean-ExtraBold.woff2) format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.bold {
+  font-family: AdobeClean;
+}
+
+.extraBold {
+  font-family: AdobeClean-ExtraBold;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+          box-sizing: inherit;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.fullscreen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 728px;
+  height: 90px;
+}
+
+.border {
+  border: 1px solid #000000;
+}
+
+.banner {
+  position: relative;
+  overflow: hidden;
+  width: 728px;
+  height: 90px;
+  background-color: #000000;
+}
+
+.content {
+  opacity: 0;
+}
+
+.mainExit {
+  cursor: pointer;
+}
+
+.background {
+  width: 728px;
+  height: 90px;
+  background-color: #ffd800;
+}
+
+.backgroundImage {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.copy {
+  width: 728px;
+  height: 90px;
+}
+
+.lines, .lines2{
+  opacity: 0;
+}
